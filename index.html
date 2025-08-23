@@ -35,8 +35,25 @@
     }
     .section-title{display:flex; align-items:center; gap:.5rem; font-weight:700}
     .section-title .material-icons{color: var(--nebula-green)}
-    .map-card .card-image{background:#eceff1; display:flex; align-items:center; justify-content:center; height:140px}
+    
+    /* Map cards */
+    .map-card .card-image{
+      background:#eceff1; 
+      display:flex; 
+      align-items:center; 
+      justify-content:center; 
+      padding:0; 
+      overflow:hidden;
+    }
+    .map-card .card-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+      border-radius: 0 0 4px 4px; /* optional rounding */
+    }
     .map-card .card-image span{color:#607d8b}
+    
     .feature-icon{
       width:72px; height:72px; border-radius:50%; display:grid; place-items:center; background:#e8f5e9;
       color: var(--nebula-green); margin-bottom:.5rem;
@@ -169,12 +186,14 @@
             <div class="card map-card white black-text">
               <div class="card-content">
               <div class="map-header">
-              <span class="card-title" style="margin:0">Fissura <small>by </small><img src="https://mineskin.eu/helm/G_SKIPPY/20.png" alt="avatar"> G_SKIPPY</span>
+              <span class="card-title" style="margin:0">Mute City <small>by </small><img src="https://mineskin.eu/helm/Evocal/20.png" alt="avatar"> Evocal</span>
               </div>
               <p><strong>Gamemode:</strong> Destroy the Monument</p>
               </div>
               <div class="card-image">
-              <span>Image Placeholder</span>
+                <div class="card-image">
+                  <img src="https://i.imgur.com/Tn5skZs.png" alt="Mute City I">
+                </div>
               </div>
               <div class="card-action right-align">
               <a class="orange-text" href="#">MORE INFO »</a>
