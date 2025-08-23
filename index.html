@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Project Nebula</title>
+  <!-- Materialize CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet" />
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <style>
+    :root{
+      --nebula-green:#2f5d3a;
+      --nebula-green-dark:#21452b;
+      --nebula-accent:#00bcd4;
+    }
+    .navbar-fixed nav{
+      background: var(--nebula-green);
+    }
+    .brand-logo{font-weight:700; letter-spacing:.5px}
+    .timer-chip{
+      background: rgba(255,255,255,.15);
+      padding: 0 14px; height: 32px; line-height: 32px;
+      border-radius: 999px; display:inline-flex; align-items:center; gap:6px;
+    }
+    .hero{
+      background: linear-gradient(135deg, var(--nebula-green-dark), #0d1117);
+      color:#fff; padding: 6rem 0 4rem;
+    }
+    .hero h1{font-weight:800; margin:0 0 .25rem}
+    .subhead{opacity:.9; font-size:1.25rem}
+    .ip-chip{
+      display:inline-flex; align-items:center; gap:.5rem; background:#1b2832; color:#e3f2fd;
+      padding:.75rem 1rem; border-radius:999px; box-shadow: 0 4px 18px rgba(0,0,0,.25);
+    }
+    .section-title{display:flex; align-items:center; gap:.5rem; font-weight:700}
+    .section-title .material-icons{color: var(--nebula-green)}
+    .map-card .card-image{background:#eceff1; display:flex; align-items:center; justify-content:center; height:140px}
+    .map-card .card-image span{color:#607d8b}
+    .feature-icon{
+      width:72px; height:72px; border-radius:50%; display:grid; place-items:center; background:#e8f5e9;
+      color: var(--nebula-green); margin-bottom:.5rem;
+    }
+    .cta{
+      background: url('') center/cover no-repeat fixed;
+      position:relative;
+    }
+    .cta::before{content:""; position:absolute; inset:0; background:rgba(0,0,0,.55)}
+    .cta .container{position:relative}
+    footer.page-footer{background: #0d1117}
+    footer .footer-links a{color:#cfd8dc}
+    .chip.nebula{background: #e8f5e9; color: var(--nebula-green); font-weight:600}
+    .sidenav .user-view{background: var(--nebula-green)}
+  </style>
+</head>
+<body class="grey darken-4">
+  <!-- NAVBAR -->
+  <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper container">
+        <a href="#home" class="brand-logo">Project Nebula</a>
+        <a href="#" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="#home"><i class="material-icons left">home</i>Home</a></li>
+          <li><a href="#maps"><i class="material-icons left">map</i>Maps</a></li>
+          <li><a href="#stats"><i class="material-icons left">insert_chart</i>Stats</a></li>
+          <li><a href="#games"><i class="material-icons left">sports_esports</i>Games</a></li>
+          <li>
+            <span class="timer-chip white-text">
+              <i class="material-icons tiny">schedule</i>
+              <span id="countdown"></span>
+            </span>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Mobile Nav -->
+  <ul class="sidenav" id="mobile-nav">
+    <li>
+      <div class="user-view">
+        <div class="background"></div>
+        <a href="#home" class="white-text name" style="padding:16px; display:block; font-weight:700">Project Nebula</a>
+      </div>
+    </li>
+    <li><a href="#home"><i class="material-icons">home</i>Home</a></li>
+    <li><a href="#maps"><i class="material-icons">map</i>Maps</a></li>
+    <li><a href="#stats"><i class="material-icons">insert_chart</i>Stats</a></li>
+    <li><a href="#games"><i class="material-icons">sports_esports</i>Games</a></li>
+  </ul>
+
+  <!-- HERO -->
+  <header id="home" class="hero">
+    <div class="container center">
+      <h1>PROJECT <span class="teal-text text-accent-2">NEBULA</span></h1>
+      <p class="subhead">The faithful MCZone/Avicus revival of Nebula — a Minecraft PvP gamemode</p>
+      <div class="section" style="margin-top:1rem">
+        <span class="ip-chip">
+          <i class="material-icons">cloud</i>
+          <span id="server-ip">play.projnebula.net</span>
+          <a class="btn-small waves-effect waves-light" id="copy-ip">Copy IP</a>
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <!-- CONTENT -->
+  <main class="grey darken-4 white-text">
+    <div class="container">
+      <div class="section">
+        <div class="row">
+          <!-- Announcements -->
+          <div class="col s12 m6">
+            <h5 class="section-title"><i class="material-icons">campaign</i>Announcements</h5>
+            <div class="card announcement-card white black-text">
+            <div class="card-content">
+            <div class="announcement-header">
+            <div>
+            <span class="card-title" style="margin:0;font-weight:700"> Welcome to Nebula!</span>
+            <small class="grey-text"> <img src="https://mineskin.eu/helm/ViceWatercolour/16.png" alt="avatar"> ViceWatercolour</small>
+            <hr>
+            </div>
+            </div>
+            <div class="announcement-body">
+            <p>I'd like to be the first to welcome you to Project Nebula, a faithful revival of the classic Nebula gamemodes that many of us grew to love. My name is ViceWatercolour, and I'm joined by fellow manager alexanderjoe to bring this labor of love to the most important part of Avicus; the community!</p>
+            <br>
+            <p>Please stay tuned as we continue to develop more for the project. We would love to hear from you in the Discord - how did you find MCZone/Avicus? What are some of your favorite memories? Let's make this project something truly special.</p>
+            </div>
+            </div>
+            </div>
+            </div>
+
+          <!-- Featured Maps -->
+          <div class="col s12 m6">
+            <h5 class="section-title"><i class="material-icons">star</i>Featured Maps</h5>
+            <div class="card map-card white black-text">
+            <div class="card-content">
+            <div class="map-header">
+            <span class="card-title" style="margin:0">CherrylandMC <small>by </small><img src="https://mineskin.eu/helm/ViceWatercolour/20.png" alt="avatar"> ViceWatercolour</span>
+            </div>
+            <p><strong>Gamemode:</strong> Destroy the Monument</p>
+            </div>
+            <div class="card-image">
+            <span>Image Placeholder</span>
+            </div>
+            <div class="card-action right-align">
+            <a class="orange-text" href="#">MORE INFO »</a>
+            </div>
+            </div>
+
+            <!-- Map 2 -->
+            <div class="card map-card white black-text">
+              <div class="card-content">
+              <div class="map-header">
+              <span class="card-title" style="margin:0">Senex II <small>by </small><img src="https://mineskin.eu/helm/ParaPenguin/20.png" alt="avatar"> ParaPenguin <small>&</small> <img src="https://mineskin.eu/helm/ParaPhoenix/20.png" alt="avatar"> ParaPhoenix </span>
+              </div>
+              <p><strong>Gamemode:</strong> Destroy the Monument</p>
+              </div>
+              <div class="card-image">
+              <span>Image Placeholder</span>
+              </div>
+              <div class="card-action right-align">
+              <a class="orange-text" href="#">MORE INFO »</a>
+              </div>
+              </div>
+
+            <!-- Map 3 -->
+            <div class="card map-card white black-text">
+              <div class="card-content">
+              <div class="map-header">
+              <span class="card-title" style="margin:0">Fissura <small>by </small><img src="https://mineskin.eu/helm/G_SKIPPY/20.png" alt="avatar"> G_SKIPPY</span>
+              </div>
+              <p><strong>Gamemode:</strong> Destroy the Monument</p>
+              </div>
+              <div class="card-image">
+              <span>Image Placeholder</span>
+              </div>
+              <div class="card-action right-align">
+              <a class="orange-text" href="#">MORE INFO »</a>
+              </div>
+              </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Features Row -->
+      <div class="section" id="stats">
+        <h5 class="section-title"><i class="material-icons">extension</i>Features</h5>
+        <div class="row">
+          <div class="col s12 m4">
+            <div class="card grey darken-3">
+              <div class="card-content center">
+                <center><div class="feature-icon"><i class="material-icons">verified</i></div></center>
+                <span class="card-title white-text">Prestige</span>
+                <p class="grey-text text-lighten-1">Level up, reset, and flex your mastery with unique flair. Show off your Nebula mastery to the community!</p>
+              </div>
+            </div>
+          </div>
+          <div class="col s12 m4">
+            <div class="card grey darken-3">
+              <div class="card-content center">
+                <center><div class="feature-icon"><i class="material-icons">store</i></div></center>
+                <span class="card-title white-text">Nebula Shop</span>
+                <p class="grey-text text-lighten-1">Unlock abilities, features, and items to use to your advantage through play through kills and objectives.</p>
+              </div>
+            </div>
+          </div>
+          <div class="col s12 m4">
+            <div class="card grey darken-3">
+              <div class="card-content center">
+                <center><div class="feature-icon"><i class="material-icons">bar_chart</i></div></center>
+                <span class="card-title white-text">Leaderboards</span>
+                <p class="grey-text text-lighten-1">Casual competition with statistics like kills, objectives, & more across maps and seasons.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Staff -->
+      <div class="section" id="games">
+        <h5 class="section-title"><i class="material-icons">people</i>Staff</h5>
+        <div class="row">
+          <div class="col s12 m6">
+            <div class="card grey darken-3">
+              <div class="card-content">
+                <span class="card-title">Managers <span class="chip nebula">2</span></span>
+                <div class="row" style="margin-top:8px">
+                  <div class="col s6">
+                    <div class="card-panel grey darken-4 center">
+                      <img src="https://minotar.net/helm/ViceWatercolour/64.png" alt="Vice">
+                      <p>ViceWatercolour</p>
+                    </div>
+                  </div>
+                  <div class="col s6">
+                    <div class="card-panel grey darken-4 center">
+                      <img src="https://minotar.net/helm/alexanderjoe/64.png" alt="Vice">
+                      <p>alexanderjoe</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col s12 m6">
+            <div class="card grey darken-3">
+              <div class="card-content">
+                <span class="card-title">Moderators <span class="chip nebula">6</span></span>
+                <div class="row" style="margin-top:8px">
+                  <div class="col s4"><div class="card-panel grey darken-4 center"><i class="material-icons">face</i><p>N/A</p></div></div>
+                  <div class="col s4"><div class="card-panel grey darken-4 center"><i class="material-icons">face</i><p>N/A</p></div></div>
+                  <div class="col s4"><div class="card-panel grey darken-4 center"><i class="material-icons">face</i><p>N/A</p></div></div>
+                  <div class="col s4"><div class="card-panel grey darken-4 center"><i class="material-icons">face</i><p>N/A</p></div></div>
+                  <div class="col s4"><div class="card-panel grey darken-4 center"><i class="material-icons">face</i><p>N/A</p></div></div>
+                  <div class="col s4"><div class="card-panel grey darken-4 center"><i class="material-icons">face</i><p>N/A</p></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- CTA / Join -->
+    <section class="cta section">
+      <div class="container center">
+        <h3 class="white-text" style="margin-top:0">Join the fun!</h3>
+        <p class="grey-text text-lighten-2">Connect now at <strong>play.projnebula.net</strong></p>
+        <a href="#home" class="btn-large waves-effect waves-light" style="background:var(--nebula-green)"><i class="material-icons left">cloud</i>Copy IP</a>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col s12 m10 footer-links">
+          <a href="#about" class="btn-flat waves-effect">Our Story</a>
+          <a href="#punishments" class="btn-flat waves-effect">Punishments</a>
+          <a href="#policies" class="btn-flat waves-effect">Policies & Rules</a>
+          <a href="https://discord.gg/kgWvJGKkt8" class="btn-flat waves-effect">Discord</a>
+          <a href="https://github.com/ProjNebula" class="btn-flat waves-effect">GitHub</a>
+        </div>
+        <div class="col s12 m2 right-align grey-text text-lighten-1">© Project Nebula 2025</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Materialize JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script>
+    // Init components
+    document.addEventListener('DOMContentLoaded', () => {
+      M.Sidenav.init(document.querySelectorAll('.sidenav'));
+      M.Modal.init(document.querySelectorAll('.modal'));
+      // Smooth anchor scrolling
+      document.querySelectorAll('a[href^="#"]').forEach(a=>{
+        a.addEventListener('click', e=>{
+          const id=a.getAttribute('href');
+          if(id && id!== '#'){
+            e.preventDefault();
+            document.querySelector(id)?.scrollIntoView({behavior:'smooth'});
+          }
+        })
+      });
+
+      // Copy IP button(s)
+      function copyIP(){
+        const ip = document.getElementById('server-ip').textContent.trim();
+        navigator.clipboard.writeText(ip).then(()=>M.toast({html:`Copied ${ip}`}));
+      }
+      document.getElementById('copy-ip').addEventListener('click', copyIP);
+      document.querySelectorAll('.cta a.btn-large').forEach(btn=>btn.addEventListener('click', (e)=>{e.preventDefault(); copyIP();}));
+
+</script>
+<!-- Countdown Timer Script -->
+<script>
+  const targetDate = new Date("September 13, 2025 00:00:00").getTime();
+
+  const countdown = setInterval(() => {
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+
+    // Time calculations
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+
+    // Display
+    document.getElementById("countdown").innerHTML =
+      days + "d " + hours + "h ";
+
+    // If expired
+    if (distance < 0) {
+      clearInterval(countdown);
+      document.getElementById("countdown").innerHTML = "Launched!";
+    }
+  }, 1000);
+</script>
+</body>
+</html>
