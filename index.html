@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Project Nebula</title>
   <!-- Materialize CSS -->
@@ -113,21 +114,18 @@
       <h1>PROJECT <span class="teal-text text-accent-2">NEBULA</span></h1>
       <p class="subhead">The faithful MCZone/Avicus revival of Nebula — a Minecraft PvP gamemode</p>
       <div class="section" style="margin-top:1rem">
-        <span class="ip-chip">
+        <div class="ip-chip">
           <i class="material-icons">cloud</i>
-          <span id="server-ip">play.projnebula.net</span>
-          <a class="btn-small waves-effect waves-light" id="copy-ip">Copy IP</a>
-        </span>
+          <span id="server-ip">play.nebulamc.net</span>
+          <a id="copy-ip" class="btn waves-effect waves-light" style="margin-left:8px;">
+            Copy IP
+          </a>
+        </div>
       </div>
     </div>
   </header>
 
-  <!-- CONTENT -->
-  <main class="grey darken-4 white-text">
-    <div class="container">
-      <div class="section">
-        <div class="row">
-                <!-- Features Row -->
+        <!-- Features Row -->
       <div class="section" id="stats">
         <h5 class="section-title"><i class="material-icons">extension</i>Features</h5>
         <div class="row">
@@ -160,6 +158,12 @@
           </div>
         </div>
       </div>
+
+  <!-- CONTENT -->
+  <main class="grey darken-4 white-text">
+    <div class="container">
+      <div class="section">
+        <div class="row">
           <!-- Announcements -->
           <div class="col s12 m6">
             <h5 class="section-title"><i class="material-icons">campaign</i>Announcements</h5>
@@ -192,14 +196,14 @@
             <p><strong>Gamemode:</strong> Destroy the Monument</p>
             </div>
             <div class="card-image">
-            <img src="https://i.imgur.com/BDD9QLz.png" alt="CherrylandMC">
+              <img src="assets/maps/cherrylandmc.PNG" alt="CherrylandMC">
             </div>
             <div class="card-action right-align">
             <a class="orange-text" href="#">MORE INFO »</a>
             </div>
             </div>
 
-            <!-- Map 2 -->
+            <!-- Map 1 -->
             <div class="card map-card white black-text">
               <div class="card-content">
               <div class="map-header">
@@ -208,7 +212,25 @@
               <p><strong>Gamemode:</strong> Destroy the Monument</p>
               </div>
               <div class="card-image">
-              <img src="https://i.imgur.com/Yt5MrTB.png" alt="Senex II">
+                <img src="assets/maps/senex_2.PNG" alt="Senex II">
+              </div>
+              <div class="card-action right-align">
+              <a class="orange-text" href="#">MORE INFO »</a>
+              </div>
+              </div>
+
+            <!-- Map 2 -->
+            <div class="card map-card white black-text">
+              <div class="card-content">
+              <div class="map-header">
+              <span class="card-title" style="margin:0">Mute City <small>by </small><img src="https://mineskin.eu/helm/Evocal/20.png" alt="avatar"> Evocal</span>
+              </div>
+              <p><strong>Gamemode:</strong> Destroy the Monument</p>
+              </div>
+              <div class="card-image">
+                <div class="card-image">
+                  <img src="https://i.imgur.com/Tn5skZs.png" alt="Mute City I">
+                </div>
               </div>
               <div class="card-action right-align">
               <a class="orange-text" href="#">MORE INFO »</a>
@@ -229,13 +251,13 @@
                 <div class="row" style="margin-top:8px">
                   <div class="col s6">
                     <div class="card-panel grey darken-4 center">
-                      <img src="https://minotar.net/helm/ViceWatercolour/64.png" alt="Vice">
+                      <img src="https://minotar.net/helm/bf331953-4f92-43ee-8abc-7544b8234936/64.png" alt="ViceWatercolour">
                       <p>ViceWatercolour</p>
                     </div>
                   </div>
                   <div class="col s6">
                     <div class="card-panel grey darken-4 center">
-                      <img src="https://minotar.net/helm/alexanderjoe/64.png" alt="Vice">
+                      <img src="https://minotar.net/helm/f866f386-3d9d-493c-8de8-87b493cab8be/64.png" alt="alexanderjoe">
                       <p>alexanderjoe</p>
                     </div>
                   </div>
@@ -266,9 +288,12 @@
     <!-- CTA / Join -->
     <section class="cta section">
       <div class="container center">
-        <h3 class="white-text" style="margin-top:0">Join the fun!</h3>
-        <p class="grey-text text-lighten-2">Connect now at <strong>play.projnebula.net</strong></p>
-        <a href="#home" class="btn-large waves-effect waves-light" style="background:var(--nebula-green)"><i class="material-icons left">cloud</i>Copy IP</a>
+        <h4>Join the fun!</h4>
+        <div class="section" style="margin-top:1rem">
+          <div class="ip-chip">
+            <span id="server-ip">play.nebulamc.net</span>
+          </div>
+        </div>
       </div>
     </section>
   </main>
@@ -306,15 +331,24 @@
           }
         })
       });
+    });
+  });
 
-      // Copy IP button(s)
-      function copyIP(){
-        const ip = document.getElementById('server-ip').textContent.trim();
-        navigator.clipboard.writeText(ip).then(()=>M.toast({html:`Copied ${ip}`}));
-      }
-      document.getElementById('copy-ip').addEventListener('click', copyIP);
-      document.querySelectorAll('.cta a.btn-large').forEach(btn=>btn.addEventListener('click', (e)=>{e.preventDefault(); copyIP();}));
+</script>
+<!-- IP Copy Script -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const copyBtn = document.getElementById("copy-ip");
+    const ipText = document.getElementById("server-ip").textContent.trim();
 
+    copyBtn.addEventListener("click", () => {
+      navigator.clipboard.writeText(ipText).then(() => {
+        M.toast({html: "IP copied to clipboard!"});
+      }).catch(err => {
+        console.error("Failed to copy: ", err);
+      });
+    });
+  });
 </script>
 <!-- Countdown Timer Script -->
 <script>
