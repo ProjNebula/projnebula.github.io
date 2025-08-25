@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta property="og:image" content="/assets/logo.png">
+  <meta property="og:title" content="Home">
+  <meta property="og:site_name" content="Project Nebula">
+  <meta name="theme-color" content="#2f5d3a">
+  <meta name="description" content="The faithful revival of classic Minecraft Java DTM, CTW, & TDM Nebula games.">
+  <title>Project Nebula - Games</title>
+  <!-- Materialize CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet" />
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+  <style>
+    :root{
+      --nebula-green:#2f5d3a;
+      --nebula-green-dark:#21452b;
+      --nebula-accent:#00bcd4;
+    }
+    .navbar-fixed nav{
+      background: var(--nebula-green);
+    }
+    .brand-logo{font-weight:700; letter-spacing:.5px}
+    .timer-chip{
+      background: rgba(255,255,255,.15);
+      padding: 0 14px; height: 32px; line-height: 32px;
+      border-radius: 999px; display:inline-flex; align-items:center; gap:6px;
+    }
+    .hero{
+      background: linear-gradient(135deg, var(--nebula-green-dark), #0d1117);
+      color:#fff; padding: 6rem 0 4rem;
+    }
+      .gamemode-card-dtm {
+      background: url('https://i.imgur.com/zRJ20Ik.png') center/cover no-repeat;
+      padding: 2rem;
+      border-radius: 3px;
+      margin-bottom: 2rem;
+      text-shadow: 2px 2px 8px black;
+    }
+    .gamemode-card-ctw {
+      background: url('https://i.imgur.com/hY0uXdo.png') center/cover no-repeat;
+      padding: 2rem;
+      border-radius: 3px;
+      margin-bottom: 2rem;
+      text-shadow: 2px 2px 8px black;
+    }
+    .gamemode-card-tdm {
+      background: url('https://i.imgur.com/G7SuNMB.png') center/cover no-repeat;
+      padding: 2rem;
+      border-radius: 3px;
+      margin-bottom: 2rem;
+      text-shadow: 2px 2px 8px black;
+    }
+    .gamemode-card h5 {
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .gamemode-card p {
+      margin: 0;
+      font-size: 1.1rem;
+      color: white;
+    }
+    .hero h1{font-weight:800; margin:0 0 .25rem}
+    .subhead{opacity:.9; font-size:1.25rem}
+    .ip-chip{
+      display:inline-flex; align-items:center; gap:.5rem; background:#1b2832; color:#e3f2fd;
+      padding:.75rem 1rem; border-radius:999px; box-shadow: 0 4px 18px rgba(0,0,0,.25);
+    }
+    .section-title{display:flex; align-items:center; gap:.5rem; font-weight:700}
+    .section-title .material-icons{color: var(--nebula-green)}
+
+    .feature-icon{
+      width:72px; height:72px; border-radius:50%; display:grid; place-items:center; background:#e8f5e9;
+      color: var(--nebula-green); margin-bottom:.5rem;
+    }
+    .cta{
+      background: url('') center/cover no-repeat fixed;
+      position:relative;
+    }
+    .cta::before{content:""; position:absolute; inset:0; background:rgba(0,0,0,.55)}
+    .cta .container{position:relative}
+    footer.page-footer{background: #0d1117}
+    footer .footer-links a{color:#cfd8dc}
+    .chip.nebula{background: #e8f5e9; color: var(--nebula-green); font-weight:600}
+    .sidenav .user-view{background: var(--nebula-green)}
+  </style>
+</head>
+<body class="grey darken-4">
+  <!-- NAVBAR -->
+  <div class="navbar-fixed">
+    <nav>
+      <div class="nav-wrapper container">
+        <a href="/" class="brand-logo">Project Nebula</a>
+        <a href="#" data-target="mobile-nav" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        <ul class="right hide-on-med-and-down">
+          <li><a href="/"><i class="material-icons left">home</i>Home</a></li>
+          <li><a href="/maps"><i class="material-icons left">map</i>Maps</a></li>
+          <li><a href="#stats"><i class="material-icons left">insert_chart</i>Stats</a></li>
+          <li><a href="#"><i class="material-icons left">sports_esports</i>Games</a></li>
+          <li>
+            <span class="timer-chip white-text">
+              <i class="material-icons tiny">schedule</i>
+              <span id="countdown"></span>
+            </span>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+
+  <!-- Mobile Nav -->
+  <ul class="sidenav" id="mobile-nav">
+    <li>
+      <div class="user-view">
+        <div class="background"></div>
+        <a href="/" class="white-text name" style="padding:16px; display:block; font-weight:700">Project Nebula</a>
+      </div>
+    </li>
+    <li><a href="/"><i class="material-icons">home</i>Home</a></li>
+    <li><a href="/maps"><i class="material-icons">map</i>Maps</a></li>
+    <li><a href="#stats"><i class="material-icons">insert_chart</i>Stats</a></li>
+    <li><a href="#"><i class="material-icons">sports_esports</i>Games</a></li>
+  </ul>
+
+  <!-- HERO -->
+  <header id="home" class="hero">
+    <div class="container center">
+      <h1>VIEW OUR <span class="teal-text text-accent-2">GAMES</span></h1>
+      <p class="subhead">A classic curated variety of Nebula & Nebula-adjacent PvP games</p>
+    </div>
+  </header>
+
+  <!-- CONTENT -->
+  <main class="grey darken-4 white-text">
+    
+  <!-- Gamemode Cards -->
+  <section class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col s12 m6">
+          <div class="gamemode-card-dtm">
+            <h5><span>Destroy the Monument</span></h5>
+            <p>Break the enemy's obsidian monument to win!</p>
+          </div>
+        </div>
+        
+        <div class="col s12 m6">
+          <div class="gamemode-card-ctw">
+            <h5><span>Capture the Wool</span></h5>
+            <p>Capture & return the enemy's wool to your base!</p>
+          </div>
+        </div>
+        
+        <div class="col s12 m6">
+          <div class="gamemode-card-tdm">
+            <h5><span>Team Deathmatch</span></h5>
+            <p>Fight the opposing team to obtain the most kills!</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="page-footer">
+    <div class="container">
+      <div class="row">
+        <div class="col s12 m10 footer-links">
+          <a href="#about" class="btn-flat waves-effect">Our Story</a>
+          <a href="#punishments" class="btn-flat waves-effect">Punishments</a>
+          <a href="#policies" class="btn-flat waves-effect">Policies & Rules</a>
+          <a href="https://discord.gg/kgWvJGKkt8" class="btn-flat waves-effect">Discord</a>
+          <a href="https://github.com/ProjNebula" class="btn-flat waves-effect">GitHub</a>
+        </div>
+        <div class="col s12 m2 right-align grey-text text-lighten-1">© Project Nebula 2025</div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Materialize JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script>
+    // Init components
+    document.addEventListener('DOMContentLoaded', () => {
+      M.Sidenav.init(document.querySelectorAll('.sidenav'));
+      M.Modal.init(document.querySelectorAll('.modal'));
+      // Smooth anchor scrolling
+      document.querySelectorAll('a[href^="#"]').forEach(a=>{
+        a.addEventListener('click', e=>{
+          const id=a.getAttribute('href');
+          if(id && id!== '#'){
+            e.preventDefault();
+            document.querySelector(id)?.scrollIntoView({behavior:'smooth'});
+          }
+        })
+      });
+    });
+  });
+
+</script>
+<!-- IP Copy Script -->
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const copyBtn = document.getElementById("copy-ip");
+    const ipText = document.getElementById("server-ip").textContent.trim();
+
+    copyBtn.addEventListener("click", () => {
+      navigator.clipboard.writeText(ipText).then(() => {
+        M.toast({html: "IP copied to clipboard!"});
+      }).catch(err => {
+        console.error("Failed to copy: ", err);
+      });
+    });
+  });
+</script>
+<!-- Countdown Timer Script -->
+<script>
+  const targetDate = new Date("September 13, 2025 00:00:00").getTime();
+
+  const countdown = setInterval(() => {
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+
+    // Time calculations
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+
+    // Display
+    document.getElementById("countdown").innerHTML =
+      days + "d " + hours + "h ";
+
+    // If expired
+    if (distance < 0) {
+      clearInterval(countdown);
+      document.getElementById("countdown").innerHTML = "Launched!";
+    }
+  }, 1000);
+</script>
+</body>
+</html>
